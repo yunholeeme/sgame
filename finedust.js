@@ -1,6 +1,6 @@
 const API_KEY = "44586f4a7a67747836324a4f636853";
 const finedust = document.querySelector(".js-findust");
-const numlist = 10;
+let numlist = 1000;
 
 
 
@@ -10,11 +10,16 @@ function loadInfo() {
         return response.json();
     })
     .then(json => {
+        const list_total_count = json.SwmplInfo.list_total_count;
+        console.log(list_total_count);
+        // numlist = list_total_count;
         for (let i = 0; i < numlist; ++i) 
         {
             const li = document.createElement("li");
             const place = json.SwmplInfo.row[i].NM;
-            li.innerText = place;
+            const phone = json.SwmplInfo.row[i].TEL;
+            const memberTotalNum = json.SwmplInfo.row[i].MEMBER_TOTAL_NUM;
+            li.innerText = `${place}, TEL: ${phone}, 총회원수: ${memberTotalNum}`;
             console.log(place);
             finedust.appendChild(li);
         }
