@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+h1{
+    color: white;
+}
+
+h4{
+    color: white;
+}
+
+.form,
+.greeting{
+    display: none;
+}
+
+.showing{
+    display: block;
+}
